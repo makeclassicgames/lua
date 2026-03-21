@@ -1,0 +1,21 @@
+site_name: Apuntes Programación en Lua
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - lua
+    - bash
+
+nav:
+  - Home: index.md
+  - Introducción: introduccion.md
+  - Variables: variables.md
+  - Operadores: operadores.md
+  - Estructuras de control: estructuras_de_control.md
+  - Tablas: tablas.md
+  - Funciones: funciones.md
+  - Modulos: modulos.md
+  - LuaRocks: luarocks.md
+  - Compilación y ejecución: compilacion_y_ejecucion.md
+  - Uso de C con Lua: uso_de_c_con_lua.md
+  - Recursos: recursos.md
