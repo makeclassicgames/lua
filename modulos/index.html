@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Modulos - Apuntes Programación en Lua</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Modulos";
+        var mkdocs_page_input_path = "modulos.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/lua.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Apuntes Programación en Lua
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../introduccion/">Introducción</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../variables/">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operadores/">Operadores</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../estructuras_de_control/">Estructuras de control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tablas/">Tablas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../funciones/">Funciones</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Modulos</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../luarocks/">LuaRocks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../compilacion_y_ejecucion/">Compilación y ejecución</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../uso_de_c_con_lua/">Uso de C con Lua</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../recursos/">Recursos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Apuntes Programación en Lua</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Modulos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulos">Modulos</h1>
+<p>En Lua, los módulos son una forma de organizar y reutilizar código. Un módulo es básicamente un archivo que contiene funciones, variables y otros elementos relacionados que pueden ser utilizados en otros archivos. Los módulos permiten encapsular el código y evitar conflictos de nombres entre diferentes partes de un programa.</p>
+<p>Para crear un módulo en Lua, simplemente necesitas crear un archivo con el código que deseas incluir en el módulo. Por ejemplo, puedes crear un archivo llamado <code>miModulo.lua</code> con el siguiente contenido:</p>
+<pre><code class="language-lua">local miModulo = {}
+
+function miModulo.saludar(nombre)
+    print(&quot;Hola, &quot; .. nombre .. &quot;!&quot;)
+end
+
+return miModulo
+</code></pre>
+<p>En este ejemplo, hemos creado un módulo llamado <code>miModulo</code> que contiene una función <code>saludar</code>. Al final del archivo, utilizamos <code>return miModulo</code> para devolver el módulo, lo que permite que otros archivos puedan acceder a sus funciones y variables.</p>
+<p>Para utilizar el módulo en otro archivo, puedes usar la función <code>require</code>. Por ejemplo, en un archivo llamado <code>main.lua</code>, puedes escribir lo siguiente:</p>
+<pre><code class="language-lua">local miModulo = require(&quot;miModulo&quot;)
+miModulo.saludar(&quot;Lua&quot;) -- Imprime: Hola, Lua!
+</code></pre>
+<p>En este ejemplo, hemos requerido el módulo <code>miModulo</code> y luego hemos llamado a la función <code>saludar</code> que se encuentra dentro del módulo, pasando el nombre "Lua" como argumento.</p>
+<p>Esto es solo un ejemplo básico de cómo crear y utilizar módulos en Lua. Los módulos pueden contener muchas funciones, variables y otros elementos, lo que te permite organizar tu código de manera eficiente y reutilizarlo en diferentes partes de tu programa.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../funciones/" class="btn btn-neutral float-left" title="Funciones"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../luarocks/" class="btn btn-neutral float-right" title="LuaRocks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../funciones/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../luarocks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

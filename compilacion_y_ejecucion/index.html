@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Compilación y ejecución - Apuntes Programación en Lua</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Compilaci\u00f3n y ejecuci\u00f3n";
+        var mkdocs_page_input_path = "compilacion_y_ejecucion.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/lua.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Apuntes Programación en Lua
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../introduccion/">Introducción</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../variables/">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operadores/">Operadores</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../estructuras_de_control/">Estructuras de control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tablas/">Tablas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../funciones/">Funciones</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modulos/">Modulos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../luarocks/">LuaRocks</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Compilación y ejecución</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ejecucion-en-tiempo-de-ejecucion">Ejecución en tiempo de ejecución</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compilacion-a-bytecode">Compilación a bytecode</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../uso_de_c_con_lua/">Uso de C con Lua</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../recursos/">Recursos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Apuntes Programación en Lua</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Compilación y ejecución</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="compilacion-y-ejecucion">Compilación y Ejecución</h1>
+<p>Hasta ahora, hemos visto como podemos escribir el código e incluso crear módulos, sin embargo, no hemos visto como ejecutar código en tiempo de ejecución como usando funciones como <code>load</code> o <code>loadfile</code>, ni tampoco como compilar código a bytecode usando <code>luac</code>. En esta sección, veremos cómo ejecutar código en tiempo de ejecución y cómo compilar código a bytecode.</p>
+<h2 id="ejecucion-en-tiempo-de-ejecucion">Ejecución en tiempo de ejecución</h2>
+<p>En Lua, puedes ejecutar código en tiempo de ejecución utilizando las funciones <code>load</code> y <code>loadfile</code>. La función <code>load</code> toma una cadena de texto que contiene el código Lua y devuelve una función que, cuando se llama, ejecuta ese código. Por ejemplo:</p>
+<pre><code class="language-lua">local codigo = &quot;print('Hola, Lua!')&quot;
+local funcion = load(codigo)
+funcion() -- Imprime: Hola, Lua!
+</code></pre>
+<p>En este ejemplo, hemos creado una cadena de texto que contiene el código Lua que queremos ejecutar. Luego, usamos la función <code>load</code> para convertir esa cadena en una función que podemos llamar para ejecutar el código. Al llamar a <code>funcion()</code>, se ejecuta el código dentro de la cadena, lo que imprime "Hola, Lua!" en la consola.</p>
+<p>La función <code>loadfile</code> es similar a <code>load</code>, pero en lugar de tomar una cadena de texto, toma el nombre de un archivo que contiene código Lua. Por ejemplo:</p>
+<pre><code class="language-lua">local funcion = loadfile(&quot;miArchivo.lua&quot;)
+if funcion then
+    funcion() -- Ejecuta el código en miArchivo.lua
+else
+    print(&quot;Error al cargar el archivo&quot;)
+end
+</code></pre>
+<p>En este ejemplo, intentamos cargar un archivo llamado <code>miArchivo.lua</code> utilizando <code>loadfile</code>. Si el archivo se carga correctamente, obtenemos una función que podemos llamar para ejecutar el código dentro del archivo. Si hay un error al cargar el archivo (por ejemplo, si el archivo no existe), <code>loadfile</code> devuelve <code>nil</code>, y podemos manejar ese caso adecuadamente.</p>
+<h2 id="compilacion-a-bytecode">Compilación a bytecode</h2>
+<p>Lua también permite compilar código a bytecode utilizando la herramienta <code>luac</code>. El bytecode es una representación intermedia del código Lua que puede ser ejecutada por la máquina virtual de Lua. Compilar a bytecode puede mejorar el rendimiento de tu programa, ya que el código ya está en una forma que la máquina virtual puede ejecutar directamente. Para compilar un archivo Lua a bytecode, puedes usar el siguiente comando en la terminal:</p>
+<pre><code>luac -o miArchivo.luac miArchivo.lua
+</code></pre>
+<p>En este comando, <code>-o miArchivo.luac</code> especifica el nombre del archivo de salida que contendrá el bytecode compilado, y <code>miArchivo.lua</code> es el archivo de código fuente que deseas compilar. Después de ejecutar este comando, tendrás un archivo llamado <code>miArchivo.luac</code> que contiene el bytecode compilado.</p>
+<p>Para ejecutar el bytecode compilado, puedes usar la función <code>dofile</code> o <code>loadfile</code> de Lua. Por ejemplo:</p>
+<pre><code class="language-lua">dofile(&quot;miArchivo.luac&quot;)
+</code></pre>
+<p>O también:</p>
+<pre><code class="language-lua">local funcion = loadfile(&quot;miArchivo.luac&quot;)
+if funcion then
+    funcion() -- Ejecuta el bytecode compilado
+else
+    print(&quot;Error al cargar el bytecode&quot;)
+end
+</code></pre>
+<p>En este ejemplo, estamos utilizando <code>dofile</code> para ejecutar el bytecode compilado directamente. Alternativamente, también podemos usar <code>loadfile</code> para cargar el bytecode y luego ejecutarlo llamando a la función resultante. En ambos casos, el bytecode compilado se ejecutará de la misma manera que el código fuente original, pero con un rendimiento potencialmente mejorado debido a la compilación previa.</p>
+<p>Este proceso de compilación a bytecode es especialmente útil cuando deseas distribuir tu código sin revelar el código fuente, o cuando quieres mejorar el rendimiento de tu programa al evitar la necesidad de compilar el código cada vez que se ejecuta. Sin embargo, ten en cuenta que el bytecode compilado no es completamente seguro, ya que puede ser descompilado para recuperar el código fuente original, aunque esto puede ser más difícil que simplemente leer el archivo de texto original.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../luarocks/" class="btn btn-neutral float-left" title="LuaRocks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../uso_de_c_con_lua/" class="btn btn-neutral float-right" title="Uso de C con Lua">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../luarocks/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../uso_de_c_con_lua/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

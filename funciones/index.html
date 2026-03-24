@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Funciones - Apuntes Programación en Lua</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Funciones";
+        var mkdocs_page_input_path = "funciones.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/lua.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Apuntes Programación en Lua
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../introduccion/">Introducción</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../variables/">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operadores/">Operadores</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../estructuras_de_control/">Estructuras de control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tablas/">Tablas</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Funciones</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#definicion-de-funciones">Definición de Funciones</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funciones-anonimas">Funciones Anónimas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funciones-con-retorno">Funciones con Retorno</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#multiples-valores-de-retorno">Múltiples valores de retorno</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funciones-recursivas">Funciones Recursivas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#funciones-en-tablas">Funciones en tablas</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modulos/">Modulos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../luarocks/">LuaRocks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../compilacion_y_ejecucion/">Compilación y ejecución</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../uso_de_c_con_lua/">Uso de C con Lua</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../recursos/">Recursos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Apuntes Programación en Lua</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Funciones</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="funciones">Funciones</h1>
+<p>Vamos a hablar sobre las funciones en Lua. Las funciones son bloques de código reutilizables que realizan una tarea específica. En Lua, las funciones son de primera clase, lo que significa que pueden ser asignadas a variables, pasadas como argumentos a otras funciones y devueltas como valores desde otras funciones.</p>
+<h2 id="definicion-de-funciones">Definición de Funciones</h2>
+<p>En Lua, puedes definir una función utilizando la palabra clave <code>function</code>, seguida del nombre de la función y una lista de parámetros entre paréntesis. El cuerpo de la función se escribe entre <code>end</code>. Por ejemplo:</p>
+<pre><code class="language-lua">function saludar(nombre)
+    print(&quot;Hola, &quot; .. nombre .. &quot;!&quot;)
+end
+saludar(&quot;Lua&quot;) -- Imprime: Hola, Lua!
+</code></pre>
+<p>En este ejemplo, hemos definido una función llamada <code>saludar</code> que toma un parámetro <code>nombre</code> y imprime un saludo personalizado. Luego, llamamos a la función pasando el argumento "Lua", lo que resulta en la impresión del mensaje de saludo.</p>
+<h2 id="funciones-anonimas">Funciones Anónimas</h2>
+<p>En Lua, también puedes definir funciones anónimas, que son funciones sin un nombre. Estas funciones se pueden asignar a variables o pasar como argumentos a otras funciones. Por ejemplo:</p>
+<pre><code class="language-lua">local sumar = function(a, b)
+    return a + b
+end
+print(sumar(3, 5)) -- Imprime: 8
+</code></pre>
+<p>En este ejemplo, hemos definido una función anónima que suma dos números y la hemos asignado a la variable <code>sumar</code>. Luego, llamamos a la función pasando los argumentos 3 y 5, lo que resulta en la impresión del resultado de la suma.</p>
+<h2 id="funciones-con-retorno">Funciones con Retorno</h2>
+<p>Las funciones en Lua pueden devolver valores utilizando la palabra clave <code>return</code>. Puedes devolver cualquier tipo de dato, incluyendo múltiples valores. Por ejemplo:</p>
+<pre><code class="language-lua">function dividir(a, b)
+    if b == 0 then
+        return nil, &quot;Error: División por cero&quot;
+    else
+        return a / b
+    end
+end
+
+local resultado, error = dividir(10, 2)
+
+if error then
+    print(error)
+else
+    print(&quot;Resultado: &quot; .. resultado) -- Imprime: Resultado: 5
+end
+</code></pre>
+<p>En este ejemplo, la función <code>dividir</code> devuelve el resultado de la división si el divisor no es cero, o devuelve <code>nil</code> y un mensaje de error si el divisor es cero. Luego, llamamos a la función y manejamos el resultado y el error de manera adecuada.</p>
+<h3 id="multiples-valores-de-retorno">Múltiples valores de retorno</h3>
+<p>En Lua, una función puede devolver múltiples valores separados por comas. Por ejemplo:</p>
+<pre><code class="language-lua">function coordenadas()
+    return 10, 20
+end
+
+local x, y = coordenadas()
+
+print(&quot;Coordenadas: (&quot; .. x .. &quot;, &quot; .. y .. &quot;)&quot;) -- Imprime: Coordenadas: (10, 20)
+</code></pre>
+<p>Como vemos en este ejemplo, la función <code>coordenadas</code> devuelve dos valores, que luego se asignan a las variables <code>x</code> y <code>y</code>. Esto es útil para devolver múltiples resultados desde una función sin necesidad de usar tablas u otras estructuras de datos. Puedes observar el operador de concatenación (<code>..</code>) para construir la cadena de texto que muestra las coordenadas.</p>
+<h2 id="funciones-recursivas">Funciones Recursivas</h2>
+<p>Las funciones en Lua también pueden ser recursivas, lo que significa que pueden llamarse a sí mismas para resolver un problema. Por ejemplo, aquí hay una función recursiva para calcular el factorial de un número:</p>
+<pre><code class="language-lua">function factorial(n)
+    if n == 0 then
+        return 1
+    else
+        return n * factorial(n - 1)
+    end
+end
+
+print(factorial(5)) -- Imprime: 120
+</code></pre>
+<p>En este ejemplo, la función <code>factorial</code> se llama a sí misma con un valor decreciente de <code>n</code> hasta que llega a 0, momento en el cual devuelve 1. El resultado es el factorial de 5, que es 120.</p>
+<h2 id="funciones-en-tablas">Funciones en tablas</h2>
+<p>En Lua, las funciones también pueden ser almacenadas en tablas, lo que permite organizar el código de manera más estructurada. Por ejemplo:</p>
+<pre><code class="language-lua">local miTabla = {
+    saludar = function(nombre)
+        print(&quot;Hola, &quot; .. nombre .. &quot;!&quot;)
+    end,
+    sumar = function(a, b)
+        return a + b
+    end
+}
+miTabla.saludar(&quot;Lua&quot;) -- Imprime: Hola, Lua!
+print(miTabla.sumar(3, 5)) -- Imprime: 8
+</code></pre>
+<p>En este ejemplo, hemos creado una tabla llamada <code>miTabla</code> que contiene dos funciones: <code>saludar</code> y <code>sumar</code>. Luego, llamamos a estas funciones utilizando la sintaxis de acceso a campos de la tabla.</p>
+<p>Como hemos visto, las funciones en Lua son una parte fundamental del lenguaje y ofrecen una gran flexibilidad para organizar y reutilizar el código. Ya sea que estés definiendo funciones con nombre, funciones anónimas, funciones recursivas o funciones almacenadas en tablas, Lua te proporciona las herramientas necesarias para trabajar con funciones de manera efectiva.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../tablas/" class="btn btn-neutral float-left" title="Tablas"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../modulos/" class="btn btn-neutral float-right" title="Modulos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../tablas/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../modulos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

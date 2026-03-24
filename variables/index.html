@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Variables - Apuntes Programación en Lua</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Variables";
+        var mkdocs_page_input_path = "variables.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/lua.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Apuntes Programación en Lua
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../introduccion/">Introducción</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Variables</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#identificadores-en-lua">Identificadores en Lua</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tipos-de-datos-en-lua">Tipos de Datos en Lua</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cadenas-strings">Cadenas (Strings)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operadores/">Operadores</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../estructuras_de_control/">Estructuras de control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tablas/">Tablas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../funciones/">Funciones</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modulos/">Modulos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../luarocks/">LuaRocks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../compilacion_y_ejecucion/">Compilación y ejecución</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../uso_de_c_con_lua/">Uso de C con Lua</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../recursos/">Recursos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Apuntes Programación en Lua</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Variables</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="variables-y-tipos-de-datos">Variables y Tipos de Datos</h1>
+<p>En Lua, las variables son contenedores que almacenan valores. Lua es un lenguaje de tipado dinámico, lo que significa que no es necesario declarar el tipo de una variable antes de usarla. Puedes asignar cualquier tipo de valor a una variable y cambiarlo en cualquier momento.</p>
+<p>Por ejemplo:</p>
+<pre><code class="language-lua">local miVariable = 42        -- Asignando un número
+print(miVariable)           -- Imprime: 42
+miVariable = &quot;Hola, Lua!&quot;  -- Asignando una cadena de texto
+print(miVariable)           -- Imprime: Hola, Lua!
+</code></pre>
+<p>En este ejemplo, <code>miVariable</code> primero almacena un número y luego se le asigna una cadena de texto. Lua maneja automáticamente el tipo de dato, por lo que no es necesario especificarlo.</p>
+<h2 id="identificadores-en-lua">Identificadores en Lua</h2>
+<p>Los identificadores en Lua son los nombres que se utilizan para referirse a variables, funciones, tablas y otros elementos del programa. Un identificador debe comenzar con una letra (a-z o A-Z) o un guion bajo (_), seguido de cualquier combinación de letras, dígitos (0-9) y guiones bajos. Los identificadores no pueden ser iguales a las palabras reservadas de Lua.</p>
+<p>Algunos ejemplos de identificadores válidos son:</p>
+<pre><code class="language-lua">local nombre = &quot;Lua&quot;
+local edad = 30
+local _contador = 0
+</code></pre>
+<p><strong>NOTA</strong>: Más adelante explicaremos que significa la palabra reservada <code>local</code> y cómo afecta el alcance de las variables. Por ahora, lo importante es entender que los identificadores son los nombres que usamos para referirnos a los valores almacenados en las variables.</p>
+<h2 id="tipos-de-datos-en-lua">Tipos de Datos en Lua</h2>
+<p>Lua tiene varios tipos de datos incorporados que puedes usar para almacenar diferentes tipos de información. Los tipos de datos básicos en Lua incluyen:</p>
+<ul>
+<li><strong>nil</strong>: Representa la ausencia de un valor. Es el valor predeterminado de las variables no inicializadas.</li>
+<li><strong>boolean</strong>: Representa un valor de verdad, que puede ser <code>true</code> o <code>false</code>.</li>
+<li><strong>number</strong>: Representa números, tanto enteros como de punto flotante.</li>
+<li><strong>string</strong>: Representa secuencias de caracteres, como texto.</li>
+<li><strong>table</strong>: Representa estructuras de datos complejas, como arrays, diccionarios y objetos.</li>
+<li><strong>function</strong>: Representa funciones, que son bloques de código reutilizables.</li>
+<li><strong>userdata</strong>: Representa datos personalizados definidos por el usuario, generalmente utilizados para interactuar con bibliotecas externas.</li>
+<li><strong>thread</strong>: Representa hilos de ejecución, utilizados para la concurrencia.
+En Lua, puedes usar la función <code>type()</code> para determinar el tipo de dato de una variable. Por ejemplo:</li>
+</ul>
+<pre><code class="language-lua">local miVariable = 42
+print(type(miVariable)) -- Imprime: number
+miVariable = &quot;Hola, Lua!&quot;
+print(type(miVariable)) -- Imprime: string
+</code></pre>
+<h2 id="cadenas-strings">Cadenas (Strings)</h2>
+<p>Las cadenas en Lua son secuencias de caracteres que se pueden definir usando comillas simples (<code>'</code>) o comillas dobles (<code>"</code>). Por ejemplo:</p>
+<pre><code class="language-lua">local saludo = &quot;Hola, Lua!&quot;
+local despedida = 'Adiós, Lua!'
+print(saludo)    -- Imprime: Hola, Lua!
+print(despedida) -- Imprime: Adiós, Lua!
+</code></pre>
+<p>Igualmente, puedes usar comillas dobles dentro de una cadena definida con comillas simples, y viceversa, para incluir comillas en el texto sin necesidad de escapar los caracteres. Por ejemplo:</p>
+<pre><code class="language-lua">local mensaje = 'Ella dijo: &quot;¡Hola, Lua!&quot;'
+print(mensaje) -- Imprime: Ella dijo: &quot;¡Hola, Lua!&quot;
+</code></pre>
+<p>También puedes usar la barra invertida (<code>\</code>) para escapar caracteres especiales dentro de una cadena. Por ejemplo:</p>
+<pre><code class="language-lua">local mensaje = &quot;Ella dijo: \&quot;¡Hola, Lua!\&quot;&quot;
+print(mensaje) -- Imprime: Ella dijo: &quot;¡Hola, Lua!&quot;
+</code></pre>
+<p>Los caradteres de escape comunes incluyen:</p>
+<table>
+<thead>
+<tr>
+<th>Carácter de escape</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\n</code></td>
+<td>Nueva línea</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>Tabulación</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>Barra invertida</td>
+</tr>
+<tr>
+<td><code>\"</code></td>
+<td>Comillas dobles</td>
+</tr>
+<tr>
+<td><code>\'</code></td>
+<td>Comillas simples</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>Retorno de carro</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>Retroceso</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>Avance de página (Formulario)</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>Alerta (sonido)</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>Tabulación vertical</td>
+</tr>
+</tbody>
+</table>
+<p>Además puedes usar código ASCII en formato hexadecimal (<code>\xXX</code>) o en formato octal (<code>\XXX</code>) para representar caracteres específicos. Por ejemplo:</p>
+<pre><code class="language-lua">local letraA = &quot;\x41&quot; -- Código ASCII para 'A', formato octal.
+local letraB = &quot;\66&quot;   -- Código ASCII para 'B'.
+print(letraA) -- Imprime: A
+print(letraB) -- Imprime: B
+</code></pre>
+<p>En Lua, también puedes usar corchetes dobles (<code>[[</code> y <code>]]</code>) para definir cadenas de texto multilínea sin necesidad de escapar caracteres especiales. Por ejemplo:</p>
+<pre><code class="language-lua">local textoMultilinea = [[
+Este es un texto
+multilínea en Lua.
+Puedes escribir todo lo que quieras aquí,
+y el intérprete de Lua lo tratará como una sola cadena.
+]]
+print(textoMultilinea)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../introduccion/" class="btn btn-neutral float-left" title="Introducción"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../operadores/" class="btn btn-neutral float-right" title="Operadores">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../introduccion/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../operadores/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

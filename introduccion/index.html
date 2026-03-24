@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Introducción - Apuntes Programación en Lua</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introducci\u00f3n";
+        var mkdocs_page_input_path = "introduccion.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/lua.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Apuntes Programación en Lua
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Introducción</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacion">Instalación</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejecutar-el-interprete-de-lua">Ejecutar el intérprete de Lua</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#chunks">Chunks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comentarios">Comentarios</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../variables/">Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operadores/">Operadores</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../estructuras_de_control/">Estructuras de control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tablas/">Tablas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../funciones/">Funciones</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modulos/">Modulos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../luarocks/">LuaRocks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../compilacion_y_ejecucion/">Compilación y ejecución</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../uso_de_c_con_lua/">Uso de C con Lua</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../recursos/">Recursos</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Apuntes Programación en Lua</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Introducción</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduccion">Introducción</h1>
+<p>Lua es un lenguaje de programación ligero, rápido y fácil de aprender, diseñado para ser embebido en aplicaciones. Fue creado en 1993 por Roberto Ierusalimschy, Luiz Henrique de Figueiredo y Waldemar Celes en la Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio) en Brasil.</p>
+<p>Lua es conocido por su simplicidad y flexibilidad, lo que lo hace ideal para una amplia variedad de aplicaciones, desde el desarrollo de videojuegos hasta la automatización de tareas y el scripting en general. Lua se utiliza en muchos juegos populares, como World of Warcraft, Angry Birds y Roblox, así como en aplicaciones embebidas y sistemas operativos.</p>
+<p>Entre otras características, Lua ofrece:</p>
+<ul>
+<li>Sintaxis simple y fácil de aprender</li>
+<li>Tipos de datos dinámicos</li>
+<li>Funciones de primera clase</li>
+<li>Soporte para programación orientada a objetos</li>
+<li>Extensibilidad a través de bibliotecas y módulos</li>
+</ul>
+<p>En esta página, presentaremos una introducción a Lua, cubriendo los conceptos básicos del lenguaje, su sintaxis y algunas de sus características más importantes. También proporcionaremos ejemplos y recursos para ayudarte a comenzar a programar en Lua.</p>
+<h2 id="instalacion">Instalación</h2>
+<p>Vamos a comenzar por instalar Lua en tu sistema. Es importante mencionar, que Lua es un lenguaje de programación interpretado, lo que significa que no necesitas compilar tu código para ejecutarlo. Sin embargo, necesitarás tener el intérprete de Lua instalado en tu máquina para poder ejecutar tus scripts.</p>
+<p>Para instalar el interprete de Lua, puedes seguir estos pasos:</p>
+<ol>
+<li>Visita el sitio web oficial de Lua en <a href="https://www.lua.org/download.html">https://www.lua.org/download.html</a>.</li>
+<li>Descarga la versión más reciente de Lua para tu sistema operativo.</li>
+</ol>
+<p>Nota: Puedes descargar el código fuente y compilarlo tú mismo, o puedes buscar paquetes precompilados para tu sistema operativo. En sistemas basados en Unix, como Linux y macOS, es común usar un gestor de paquetes para instalar Lua. Por ejemplo, en Ubuntu puedes usar el siguiente comando:</p>
+<pre><code class="language-bash">sudo apt-get install lua5.3
+</code></pre>
+<h2 id="ejecutar-el-interprete-de-lua">Ejecutar el intérprete de Lua</h2>
+<p>Una vez que hayas instalado Lua, puedes ejecutar el intérprete de Lua desde la línea de comandos. Simplemente abre una terminal y escribe <code>lua</code> para iniciar el intérprete interactivo. Verás un prompt donde puedes escribir código Lua directamente y ver los resultados inmediatamente.</p>
+<pre><code class="language-bashlua">$ lua
+Lua 5.3.5  Copyright (C) 1994-2018 Lua.org, PUC-Rio
+&gt; print(&quot;¡Hola, Lua!&quot;)
+¡Hola, Lua!
+&gt;
+</code></pre>
+<p>Podrás ver que el interprete de Lua te permite ejecutar código línea por línea, lo que es útil para probar pequeñas porciones de código o para aprender el lenguaje de manera interactiva.</p>
+<p>También puedes ejecutar scripts de Lua desde la línea de comandos. Para hacer esto, simplemente guarda tu código Lua en un archivo con la extensión <code>.lua</code> y luego ejecuta el siguiente comando:</p>
+<pre><code class="language-bash">lua tu_script.lua
+</code></pre>
+<h2 id="chunks">Chunks</h2>
+<p>En Lua, un "chunk" es una porción de código que puede ser ejecutada. Un chunk puede ser tan pequeño como una sola línea de código o tan grande como un programa completo. Cuando ejecutas un script de Lua, el intérprete lo trata como un chunk y lo ejecuta en su totalidad.</p>
+<p>Normalmente, cada instrucción en Lua termina con un salto de línea, lo que indica el final de una instrucción. Sin embargo, también puedes usar el punto y coma (<code>;</code>) para separar múltiples instrucciones en la misma línea. Por ejemplo:</p>
+<pre><code class="language-lua">print(&quot;Hola&quot;); print(&quot;Mundo&quot;) -- Esto imprimirá &quot;Hola&quot; y &quot;Mundo&quot; en la misma línea
+</code></pre>
+<h2 id="comentarios">Comentarios</h2>
+<p>En Lua, puedes agregar comentarios a tu código para explicar lo que hace o para dejar notas para ti mismo o para otros programadores. Los comentarios son ignorados por el intérprete de Lua y no afectan la ejecución del programa.</p>
+<p>Para escribir un comentario de una sola línea, puedes usar dos guiones (<code>--</code>) seguidos del texto del comentario. Por ejemplo:</p>
+<pre><code class="language-lua">-- Este es un comentario de una sola línea
+print(&quot;¡Hola, Lua!&quot;) -- Esto también es un comentario
+</code></pre>
+<p>Para escribir un comentario de varias líneas, puedes usar dos guiones seguidos de dos corchetes (<code>--[[</code> y <code>]]</code>). Por ejemplo:</p>
+<pre><code class="language-lua">--[[
+Este es un comentario de varias líneas.
+Puedes escribir todo lo que quieras aquí, y el intérprete de Lua lo ignorará.
+]]
+print(&quot;¡Hola, Lua!&quot;)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../variables/" class="btn btn-neutral float-right" title="Variables">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../variables/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
