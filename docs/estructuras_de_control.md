@@ -26,6 +26,7 @@ elseif edad >= 18 and edad < 65 then
     print("Eres un adulto.")
 else
     print("Eres un adulto mayor.")
+end
 ```
 
 En este ejemplo, el programa evalúa la variable `edad` y ejecuta el bloque de código correspondiente según el rango de edad.
